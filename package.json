@@ -17,7 +17,7 @@
     "tm-cli": "./lib/index.js"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest -c jest.config.js",
     "build": "rimraf lib/ && tsc && copyfiles -a -u 1 src/templates/**/* lib/"
   },
   "lint-staged": {
