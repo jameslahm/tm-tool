@@ -1,0 +1,46 @@
+{
+  "name": "tm-cli",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "type": "src/index.ts",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^5.1.0",
+    "debug": "^4.1.1",
+    "inquirer": "^7.2.0",
+    "ora": "^4.0.4",
+    "shelljs": "^0.8.4"
+  },
+  "bin": {
+    "tm-cli": "./lib/index.js"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "rimraf lib/ && tsc && copyfiles -a -u 1 src/templates/**/* lib/"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.5",
+    "@types/inquirer": "^6.5.0",
+    "@types/jest": "^26.0.3",
+    "@types/shelljs": "^0.8.8",
+    "copyfiles": "^2.3.0",
+    "dir-compare": "^2.3.0",
+    "jest": "^26.1.0",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.1.1"
+  }
+}
