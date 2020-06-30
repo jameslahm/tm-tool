@@ -9,6 +9,8 @@ cache: yarn
 install:
   - yarn add typescript -D
   - yarn 
+  - yarn build
+  - npm link
 
 script:
   - yarn test

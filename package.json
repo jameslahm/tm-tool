@@ -8,6 +8,7 @@
     "chalk": "^4.1.0",
     "commander": "^5.1.0",
     "debug": "^4.1.1",
+    "fuse.js": "^6.4.0",
     "inquirer": "^7.2.0",
     "ora": "^4.0.4",
     "shelljs": "^0.8.4"
