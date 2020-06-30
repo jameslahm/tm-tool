@@ -7,10 +7,13 @@ node_js:
 cache: yarn
 
 install:
-  - yarn add typescript -D
+  - yarn add typescript@3.9.5 -D
   - yarn 
   - yarn build
   - npm link
 
 script:
   - yarn test
+
+after_script:
+  - bash <(curl -s https://codecov.io/bash)
