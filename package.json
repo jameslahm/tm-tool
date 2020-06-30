@@ -29,9 +29,10 @@
     "build": "lerna run build"
   },
   "lint-staged": {
-    "*.{js,ts}": [
+    "*.{js,ts,tsx,jsx}": [
       "prettier --write"
     ]
+    
   },
   "husky": {
     "hooks": {

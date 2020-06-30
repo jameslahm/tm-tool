@@ -16,7 +16,10 @@ const debug = debugUtil('template');
 const readTemplate = () => {
   try {
     const templateMap = JSON.parse(
-      fs.readFileSync(path.resolve(__dirname, '../template.json'), 'utf-8')
+      fs.readFileSync(
+        path.resolve(__dirname, './config/template.json'),
+        'utf-8'
+      )
     );
     return templateMap;
   } catch (error) {
@@ -27,7 +30,7 @@ const readTemplate = () => {
 const saveTemplate = (templateMap: templateMapType) => {
   try {
     fs.writeFileSync(
-      path.resolve(__dirname, '../template.json'),
+      path.resolve(__dirname, './config/template.json'),
       JSON.stringify(templateMap),
       'utf-8'
     );

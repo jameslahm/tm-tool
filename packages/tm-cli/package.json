@@ -1,8 +1,12 @@
 {
   "name": "@wangao/tm-cli",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "type": "index.ts",
   "license": "MIT",
+  "scripts": {
+    "build":""
+  },
   "dependencies": {
     "chalk": "^4.1.0",
     "commander": "^5.1.0",

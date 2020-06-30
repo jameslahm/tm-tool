@@ -10,14 +10,13 @@ import {
   resolveTemplate,
   registerTemplate,
   verifyUrl,
-} from '../../shared/utils/utils';
+  readTemplate,
+} from '../../tm-shared';
 
 /**
  * @description Template Supported
  */
-const templateMap = JSON.parse(
-  fs.readFileSync(path.resolve(__dirname, '../template.json'), 'utf-8')
-);
+const templateMap = readTemplate();
 
 /**
  * @description Main Program

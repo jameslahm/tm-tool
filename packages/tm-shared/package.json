@@ -1,0 +1,10 @@
+{
+  "name": "@wangao/tm-shared",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "type": "index.ts",
+  "license": "MIT",
+  "scripts": {
+    "build":"tsc "
+  }
+}

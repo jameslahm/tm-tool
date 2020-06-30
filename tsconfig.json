@@ -7,7 +7,5 @@
     "noImplicitAny": true,
     "sourceMap": true,
     "resolveJsonModule": true
-	},
-	"include": ["packages/*/src", "packages/shared/**/*.ts"],
-	"exclude": ["packages/shared/templates","**/*.test.ts"]
+	}
 }
