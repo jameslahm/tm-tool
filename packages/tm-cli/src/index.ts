@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { Command} from 'commander';
+import { Command } from 'commander';
 import path from 'path';
 import inquirer from 'inquirer';
 import fs from 'fs';
@@ -10,12 +10,14 @@ import {
   resolveTemplate,
   registerTemplate,
   verifyUrl,
-} from './utils';
+} from '../../shared/utils/utils';
 
 /**
  * @description Template Supported
  */
-const templateMap=JSON.parse(fs.readFileSync(path.resolve(__dirname, '../template.json'),'utf-8'))
+const templateMap = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, '../template.json'), 'utf-8')
+);
 
 /**
  * @description Main Program
@@ -65,10 +67,7 @@ program
   .command('register <templateName>')
   .description('Register Template')
   .action((templateName) => {
-    const questions: [
-      inquirer.ListQuestion,
-      inquirer.InputQuestion
-    ] = [
+    const questions: [inquirer.ListQuestion, inquirer.InputQuestion] = [
       {
         type: 'list',
         name: 'templateType',
@@ -84,7 +83,7 @@ program
       },
     ];
     inquirer.prompt(questions).then((answers) => {
-      const {templateUrl, templateType } = answers;
+      const { templateUrl, templateType } = answers;
 
       if (!templateName || !templateUrl) {
         console.log(chalk.red('Please input template Name and template URL'));
@@ -114,7 +113,7 @@ program
   .command('unregister <templateName>')
   .description('Unregister Template')
   .action((templateName) => {
-    unregisterTemplate(templateName)
+    unregisterTemplate(templateName);
   });
 
 program.parse(process.argv);

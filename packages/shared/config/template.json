@@ -1,0 +1,6 @@
+{
+  "react-typescript-webpack": {
+    "type": "local",
+    "url": "./templates/react-typescript-webpack"
+  }
+}

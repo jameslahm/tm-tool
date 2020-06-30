@@ -8,7 +8,7 @@ import fs from 'fs';
 import debugUtil from 'debug';
 
 export interface templateMapType {
-  [index:string]:{url:string,type:string}
+  [index: string]: { url: string; type: string };
 }
 
 const debug = debugUtil('template');
@@ -24,7 +24,7 @@ const readTemplate = () => {
   }
 };
 
-const saveTemplate = (templateMap:templateMapType) => {
+const saveTemplate = (templateMap: templateMapType) => {
   try {
     fs.writeFileSync(
       path.resolve(__dirname, '../template.json'),
@@ -43,7 +43,7 @@ const saveTemplate = (templateMap:templateMapType) => {
  */
 const resolveTemplate = (templateName: string, projectName: string): void => {
   const spinner = ora('Loading...').start();
-  const templateMap=readTemplate()
+  const templateMap = readTemplate();
   if (!templateMap.hasOwnProperty(templateName)) {
     spinner.fail('Sorry, No Such Template');
     return;
@@ -85,19 +85,19 @@ function registerTemplate(
 ) {
   const spinner = ora('Loading...').start();
   debug('Register start');
-  const templateMap = readTemplate()
+  const templateMap = readTemplate();
   templateMap[templateName] = {
     type: templateType,
     url: templateUrl,
   };
-  saveTemplate(templateMap)
+  saveTemplate(templateMap);
   debug('Register end');
   spinner.succeed('Register Success!');
 }
 
 const unregisterTemplate = (templateName: string) => {
   const spinner = ora('Loading...').start();
-  const templateMap=readTemplate()
+  const templateMap = readTemplate();
   if (templateMap.hasOwnProperty(templateName)) {
     delete templateMap[templateName];
   } else {
@@ -118,8 +118,15 @@ const unregisterTemplate = (templateName: string) => {
       chalk.green(`Did you mean ${searchRes[searchRes.length - 1].item.name}`)
     );
   }
-  saveTemplate(templateMap)
+  saveTemplate(templateMap);
   spinner.succeed('Unregister Success!');
 };
 
-export { resolveTemplate, verifyUrl, registerTemplate, unregisterTemplate ,readTemplate,saveTemplate};
+export {
+  resolveTemplate,
+  verifyUrl,
+  registerTemplate,
+  unregisterTemplate,
+  readTemplate,
+  saveTemplate,
+};

@@ -98,10 +98,14 @@ test('should save correct templateMap', () => {
   };
 
   saveTemplate(templateMap);
-  const readTemplateMap=JSON.parse(
+  const readTemplateMap = JSON.parse(
     fs.readFileSync(path.resolve(__dirname, '../../template.json'), 'utf-8')
   );
 
-  expect(readTemplateMap).toEqual(templateMap)
-  fs.writeFileSync(path.resolve(__dirname,'../../template.json'),JSON.stringify(orginalTemplateMap),'utf-8')
+  expect(readTemplateMap).toEqual(templateMap);
+  fs.writeFileSync(
+    path.resolve(__dirname, '../../template.json'),
+    JSON.stringify(orginalTemplateMap),
+    'utf-8'
+  );
 });

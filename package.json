@@ -4,9 +4,13 @@
   "main": "lib/index.js",
   "type": "src/index.ts",
   "license": "MIT",
-  "publishConfig":{
-    "access":"public"
+  "private": true,
+  "publishConfig": {
+    "access": "public"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "dependencies": {
     "chalk": "^4.1.0",
     "commander": "^5.1.0",
@@ -20,10 +24,9 @@
     "tm-cli": "./lib/index.js"
   },
   "scripts": {
-    "release":"semantic-release",
+    "release": "lerna exec --concurrency 1 -- npx --no-install semantic-release -e semantic-release-monorepo",
     "test": "jest -c jest.config.js",
-    "build": "rimraf lib/ && tsc",
-    "postbuild": "copyfiles -a -V -u 1 \"src/templates/**/*\" lib/"
+    "build": "lerna run build"
   },
   "lint-staged": {
     "*.{js,ts}": [
@@ -47,10 +50,12 @@
     "dir-compare": "^2.3.0",
     "husky": "^4.2.5",
     "jest": "^26.1.0",
+    "lerna": "^3.20.2",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
     "semantic-release": "^17.1.1",
+    "semantic-release-monorepo": "^7.0.2",
     "ts-jest": "^26.1.1",
     "typescript": "^3.9.5"
   }

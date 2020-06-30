@@ -8,6 +8,6 @@
     "sourceMap": true,
     "resolveJsonModule": true
 	},
-	"include": ["./src"],
-	"exclude": ["./src/templates","**/*.test.ts"]
+	"include": ["packages/*/src", "packages/shared/**/*.ts"],
+	"exclude": ["packages/shared/templates","**/*.test.ts"]
 }

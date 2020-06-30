@@ -2,7 +2,7 @@ import shell from 'shelljs';
 import fs from 'fs';
 import dircompare from 'dir-compare';
 import path from 'path';
-import { templateMapType } from '../utils';
+import { templateMapType } from '../../../shared/utils/utils';
 
 test('should create a folder hello-react using react-typescript-webpack template', () => {
   shell.exec('tm-cli init react-typescript-webpack hello-react', {
