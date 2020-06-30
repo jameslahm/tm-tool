@@ -7,7 +7,7 @@ node_js:
 cache: yarn
 
 install:
-  - npm install -g typescript
+  - yarn add typescript -D
   - yarn 
 
 script:
