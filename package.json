@@ -17,7 +17,7 @@
     "tm-cli": "./lib/index.js"
   },
   "scripts": {
-    "publish":"semantic-release",
+    "release":"semantic-release",
     "test": "jest -c jest.config.js",
     "build": "rimraf lib/ && tsc",
     "postbuild": "copyfiles -a -V -u 1 \"src/templates/**/*\" lib/"
