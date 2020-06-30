@@ -38,6 +38,7 @@
     "@types/shelljs": "^0.8.8",
     "copyfiles": "^2.3.0",
     "dir-compare": "^2.3.0",
+    "husky": "^4.2.5",
     "jest": "^26.1.0",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
