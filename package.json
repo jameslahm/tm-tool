@@ -18,7 +18,8 @@
   },
   "scripts": {
     "test": "jest -c jest.config.js",
-    "build": "rimraf lib/ && tsc && copyfiles -a -u 1 src/templates/**/* lib/"
+    "build": "rimraf lib/ && tsc",
+    "postbuild":"copyfiles -a -V -u 1 src/templates/**/* lib/"
   },
   "lint-staged": {
     "*.{js,ts}": [
