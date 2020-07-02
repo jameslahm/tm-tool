@@ -7,6 +7,7 @@ import {
   unregisterTemplate,
 } from '@tm-tools/tm-shared';
 import bodyParser from 'body-parser';
+import path from 'path';
 
 const app = express();
 
@@ -39,7 +40,7 @@ app.post('/api/templates/:template', (req, res) => {
   res.status(200).send();
 });
 
-app.use('/', express.static('./build'));
+app.use('/', express.static(path.resolve(__dirname, '../build')));
 
 app.use((req, res, next) => {
   res.sendFile('./build/index.html', { root: process.cwd() });
