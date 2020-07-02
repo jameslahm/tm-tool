@@ -34,6 +34,11 @@ tm-cli register <templateName>
 tm-cli unregister <templateName>
 ```
 
+### UI Server
+```
+tm-cli ui
+```
+
 ### Help
 ```
 tm-cli -h
