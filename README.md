@@ -1,8 +1,8 @@
 ## 🛠 TM-CLI 
 `Template Management CLI`
 
-[![Build Status](https://travis-ci.com/jameslahm/tm-cli.svg?branch=master)](https://travis-ci.com/jameslahm/tm-tools)
-[![codecov](https://codecov.io/gh/jameslahm/tm-cli/branch/master/graph/badge.svg)](https://codecov.io/gh/jameslahm/tm-tools)
+[![Build Status](https://travis-ci.com/jameslahm/tm-tools.svg?branch=master)](https://travis-ci.com/jameslahm/tm-tools)
+[![codecov](https://codecov.io/gh/jameslahm/tm-tools/branch/master/graph/badge.svg)](https://codecov.io/gh/jameslahm/tm-tools)
 
 Easy project scaffolds management tool
 
