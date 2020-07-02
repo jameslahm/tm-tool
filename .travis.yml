@@ -7,10 +7,8 @@ node_js:
 cache: yarn
 
 install:
-  - yarn 
-  - yarn build
   - yarn bootstrap
-  - cd packages/tm-cli && npm link
+  - yarn build
 
 script:
   - yarn test

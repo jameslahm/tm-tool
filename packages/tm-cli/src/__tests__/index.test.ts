@@ -10,7 +10,7 @@ import {
 } from '@tm-tools/tm-shared';
 
 test('should create a folder hello-react using react-typescript-webpack template', () => {
-  shell.exec('tm-cli init react-typescript-webpack hello-react', {
+  shell.exec('npx tm-cli init react-typescript-webpack hello-react', {
     fatal: true,
   });
   expect(fs.existsSync('hello-react')).toBe(true);
@@ -32,7 +32,7 @@ test('should create a folder hello-react using react-typescript-webpack template
 test('should unregister react-typescript-webpack', () => {
   const orginalTemplateMap: TemplateMapType = readTemplate();
 
-  shell.exec('tm-cli unregister react-typescript-webpack');
+  shell.exec('npx tm-cli unregister react-typescript-webpack');
   const templateMap: TemplateMapType = readTemplate();
   expect(templateMap['react-typescript-webpack']).toBe(undefined);
 
