@@ -10,6 +10,7 @@ install:
   - yarn 
   - yarn build
   - yarn bootstrap
+  - cd packages/tm-cli && npm link
 
 script:
   - yarn test
