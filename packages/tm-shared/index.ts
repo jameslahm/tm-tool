@@ -27,7 +27,6 @@ const readTemplate = () => {
         return;
       }
     });
-    console.log(templateMap);
     return templateMap;
   } catch (error) {
     console.log(chalk.red(error.message));

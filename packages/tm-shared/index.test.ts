@@ -69,6 +69,14 @@ test('should return correct templateMap', () => {
     fs.readFileSync(path.resolve(__dirname, './config/template.json'), 'utf-8')
   );
 
+  Object.keys(originalTemplateMap).forEach((k) => {
+    if (originalTemplateMap[k].type === 'local')
+      originalTemplateMap[k].url = path.resolve(
+        __dirname + '/lib',
+        originalTemplateMap[k].url
+      );
+  });
+
   const templateMap = readTemplate();
   expect(templateMap).toEqual(originalTemplateMap);
 });

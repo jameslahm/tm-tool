@@ -32,7 +32,6 @@ var readTemplate = function () {
         return;
       }
     });
-    console.log(templateMap_1);
     return templateMap_1;
   } catch (error) {
     console.log(chalk_1['default'].red(error.message));
