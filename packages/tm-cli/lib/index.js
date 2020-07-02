@@ -119,5 +119,9 @@ program
   .action(function (templateName) {
     tm_shared_1.unregisterTemplate(templateName);
   });
+program
+  .command('ui')
+  .description('Start UI Server')
+  .action(function () {});
 program.parse(process.argv);
 //# sourceMappingURL=index.js.map

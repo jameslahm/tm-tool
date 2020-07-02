@@ -12,6 +12,7 @@ import {
   verifyUrl,
   readTemplate,
 } from '@tm-tools/tm-shared';
+import app from '@tm-tools/tm-ui';
 
 /**
  * @description Template Supported
@@ -114,5 +115,10 @@ program
   .action((templateName) => {
     unregisterTemplate(templateName);
   });
+
+program
+  .command('ui')
+  .description('Start UI Server')
+  .action(() => {});
 
 program.parse(process.argv);

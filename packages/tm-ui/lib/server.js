@@ -37,6 +37,7 @@ app.use('/', express_1['default'].static('./build'));
 app.use(function (req, res, next) {
   res.sendFile('./build/index.html', { root: process.cwd() });
 });
-app.listen(3000, function () {
-  console.log('Listening on http://localhost:3000');
-});
+// app.listen(3000, () => {
+//   console.log('Listening on http://localhost:3000');
+// });
+exports['default'] = app;

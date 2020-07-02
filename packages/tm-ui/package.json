@@ -1,13 +1,15 @@
 {
   "name": "@tm-tools/tm-ui",
   "version": "1.0.0",
+  "main": "./lib/server.js",
+  "types": "./lib/server.d.ts",
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build && yarn build:server",
     "test": "jest",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
-    "build:server": "tsc server.ts --outDir lib --esModuleInterop"
+    "build:server": "tsc server.ts --outDir lib --esModuleInterop --declaration"
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
