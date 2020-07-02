@@ -43,7 +43,7 @@ app.post('/api/templates/:template', (req, res) => {
 app.use('/', express.static(path.resolve(__dirname, '../build')));
 
 app.use((req, res, next) => {
-  res.sendFile('../build/index.html', { root: __dirname });
+  res.sendFile(path.resolve(__dirname, '../build/index.html'));
 });
 
 // app.listen(3000, () => {
