@@ -9,7 +9,7 @@ cache: yarn
 install:
   - yarn 
   - yarn build
-  - npm link
+  - yarn bootstrap
 
 script:
   - yarn test
