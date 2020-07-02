@@ -4,9 +4,10 @@ node_js:
   - 11
   - 10
 
-cache: yarn
+# cache: yarn
 
 install:
+  - yarn
   - yarn bootstrap
   - yarn build
 

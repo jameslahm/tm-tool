@@ -1,4 +1,4 @@
-import shell from 'shelljs';
+import shell, { exec } from 'shelljs';
 import fs from 'fs';
 import dircompare from 'dir-compare';
 import path from 'path';
@@ -10,9 +10,13 @@ import {
 } from '@tm-tools/tm-shared';
 
 test('should create a folder hello-react using react-typescript-webpack template', () => {
-  shell.exec('npx tm-cli init react-typescript-webpack hello-react', {
-    fatal: true,
-  });
+  const executablePath = path.resolve(__dirname, '../../lib/index.js');
+  shell.exec(
+    `node ${executablePath} init react-typescript-webpack hello-react`,
+    {
+      fatal: true,
+    }
+  );
   expect(fs.existsSync('hello-react')).toBe(true);
   expect(
     dircompare.compareSync(
@@ -31,8 +35,8 @@ test('should create a folder hello-react using react-typescript-webpack template
 
 test('should unregister react-typescript-webpack', () => {
   const orginalTemplateMap: TemplateMapType = readTemplate();
-
-  shell.exec('npx tm-cli unregister react-typescript-webpack');
+  const executablePath = path.resolve(__dirname, '../../lib/index.js');
+  shell.exec(`node ${executablePath} unregister react-typescript-webpack`);
   const templateMap: TemplateMapType = readTemplate();
   expect(templateMap['react-typescript-webpack']).toBe(undefined);
 

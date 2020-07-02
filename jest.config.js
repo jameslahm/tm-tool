@@ -1,5 +1,6 @@
 module.exports = {
   collectCoverage: true,
+  testPathIgnorePatterns: ['node_modules', 'templates', 'lib'],
   coverageThreshold: {
     // global: {
     //   branches: 60,
