@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "./lib/server.js",
   "types": "./lib/server.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build && yarn build:server",

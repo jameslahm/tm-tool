@@ -4,6 +4,9 @@
   "main": "lib/index.js",
   "types": "index.ts",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "yarn clean && tsc",
     "postbuild": "copyfiles -a \"config/**/*\" \"templates/**/*\" lib",
