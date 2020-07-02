@@ -2,7 +2,12 @@ import shell from 'shelljs';
 import fs from 'fs';
 import dircompare from 'dir-compare';
 import path from 'path';
-import { templateMapType } from '../../../shared/utils/utils';
+import {
+  TemplateMapType,
+  readTemplate,
+  saveTemplate,
+  TEMPLATEPATH,
+} from '@tm-tools/tm-shared';
 
 test('should create a folder hello-react using react-typescript-webpack template', () => {
   shell.exec('tm-cli init react-typescript-webpack hello-react', {
@@ -12,7 +17,10 @@ test('should create a folder hello-react using react-typescript-webpack template
   expect(
     dircompare.compareSync(
       path.resolve(process.cwd(), 'hello-react'),
-      path.resolve(__dirname, '../templates/react-typescript-webpack'),
+      path.resolve(
+        __dirname,
+        path.resolve(TEMPLATEPATH, 'react-typescript-webpack')
+      ),
       {
         compareContent: true,
       }
@@ -22,19 +30,11 @@ test('should create a folder hello-react using react-typescript-webpack template
 });
 
 test('should unregister react-typescript-webpack', () => {
-  const orginalTemplateMap: templateMapType = JSON.parse(
-    fs.readFileSync(path.resolve(__dirname, '../../template.json'), 'utf-8')
-  );
+  const orginalTemplateMap: TemplateMapType = readTemplate();
 
   shell.exec('tm-cli unregister react-typescript-webpack');
-  const templateMap: templateMapType = JSON.parse(
-    fs.readFileSync(path.resolve(__dirname, '../../template.json'), 'utf-8')
-  );
+  const templateMap: TemplateMapType = readTemplate();
   expect(templateMap['react-typescript-webpack']).toBe(undefined);
 
-  fs.writeFileSync(
-    path.resolve(__dirname, '../../template.json'),
-    JSON.stringify(orginalTemplateMap),
-    'utf-8'
-  );
+  saveTemplate(orginalTemplateMap);
 });

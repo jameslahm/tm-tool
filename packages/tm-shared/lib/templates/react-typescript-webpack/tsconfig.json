@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "lib": ["es6", "DOM"],
+    "module": "esnext",
+    "strict": true,
+    "noImplicitAny": true,
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "outDir": "lib",
+    "target": "ES6",
+    "allowJs": false
+  },
+  "include": ["src/**/*","__mocks__"],
+  "exclude": ["**/*.js"]
+}

@@ -1,10 +1,15 @@
 {
-  "name": "@wangao/tm-shared",
+  "name": "@tm-tools/tm-shared",
   "version": "1.0.0",
   "main": "lib/index.js",
   "type": "index.ts",
   "license": "MIT",
   "scripts": {
-    "build":"tsc "
+    "build": "yarn clean && tsc",
+    "postbuild": "copyfiles -a \"config/**/*\" \"templates/**/*\" lib",
+    "clean": "rimraf lib"
+  },
+  "devDependencies": {
+    
   }
 }

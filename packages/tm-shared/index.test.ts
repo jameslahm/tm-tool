@@ -5,12 +5,14 @@ import {
   registerTemplate,
   unregisterTemplate,
   verifyUrl,
-} from '../utils';
+  TemplateMapType,
+  TEMPLATEPATH,
+} from '@tm-tools/tm-shared';
 import fs from 'fs';
-import { templateMapType } from '../utils';
 import path from 'path';
 import shell from 'shelljs';
 import dircompare from 'dir-compare';
+import { whiteBright } from 'chalk';
 
 test('should check whether valid template URL', () => {
   const correctUrl = 'git@github.com/fake/fake';
@@ -20,46 +22,28 @@ test('should check whether valid template URL', () => {
 });
 
 test('should register vue-typescript-webpack', () => {
-  const orginalTemplateMap: templateMapType = JSON.parse(
-    fs.readFileSync(path.resolve(__dirname, '../../template.json'), 'utf-8')
-  );
-
+  const originalTemplateMap: TemplateMapType = readTemplate();
   registerTemplate(
     'vue-typescript-webpack',
     'git@github.com/fake/fake',
     'remote'
   );
-  const templateMap: templateMapType = JSON.parse(
-    fs.readFileSync(path.resolve(__dirname, '../../template.json'), 'utf-8')
-  );
+  const templateMap: TemplateMapType = readTemplate();
   expect(templateMap['vue-typescript-webpack']).toEqual({
     type: 'remote',
     url: 'git@github.com/fake/fake',
   });
 
-  fs.writeFileSync(
-    path.resolve(__dirname, '../../template.json'),
-    JSON.stringify(orginalTemplateMap),
-    'utf-8'
-  );
+  saveTemplate(originalTemplateMap);
 });
 
 test('should unregister react-typescript-webpack', () => {
-  const orginalTemplateMap: templateMapType = JSON.parse(
-    fs.readFileSync(path.resolve(__dirname, '../../template.json'), 'utf-8')
-  );
-
+  const originalTemplateMap: TemplateMapType = readTemplate();
   unregisterTemplate('react-typescript-webpack');
-  const templateMap: templateMapType = JSON.parse(
-    fs.readFileSync(path.resolve(__dirname, '../../template.json'), 'utf-8')
-  );
+  const templateMap: TemplateMapType = readTemplate();
   expect(templateMap['react-typescript-webpack']).toBe(undefined);
 
-  fs.writeFileSync(
-    path.resolve(__dirname, '../../template.json'),
-    JSON.stringify(orginalTemplateMap),
-    'utf-8'
-  );
+  saveTemplate(originalTemplateMap);
 });
 
 test('should resolve react-typescript-webpack template', () => {
@@ -68,7 +52,10 @@ test('should resolve react-typescript-webpack template', () => {
   expect(
     dircompare.compareSync(
       path.resolve(process.cwd(), 'hello-react'),
-      path.resolve(__dirname, '../templates/react-typescript-webpack'),
+      path.resolve(
+        __dirname,
+        path.resolve(TEMPLATEPATH, 'react-typescript-webpack')
+      ),
       {
         compareContent: true,
       }
@@ -78,18 +65,16 @@ test('should resolve react-typescript-webpack template', () => {
 });
 
 test('should return correct templateMap', () => {
-  const orginalTemplateMap: templateMapType = JSON.parse(
-    fs.readFileSync(path.resolve(__dirname, '../../template.json'), 'utf-8')
+  const originalTemplateMap: TemplateMapType = JSON.parse(
+    fs.readFileSync(path.resolve(__dirname, './config/template.json'), 'utf-8')
   );
 
   const templateMap = readTemplate();
-  expect(templateMap).toEqual(orginalTemplateMap);
+  expect(templateMap).toEqual(originalTemplateMap);
 });
 
 test('should save correct templateMap', () => {
-  const orginalTemplateMap: templateMapType = JSON.parse(
-    fs.readFileSync(path.resolve(__dirname, '../../template.json'), 'utf-8')
-  );
+  const originalTemplateMap: TemplateMapType = readTemplate();
 
   const templateMap = readTemplate();
   templateMap['vue-typescript-webpack'] = {
@@ -98,14 +83,8 @@ test('should save correct templateMap', () => {
   };
 
   saveTemplate(templateMap);
-  const readTemplateMap = JSON.parse(
-    fs.readFileSync(path.resolve(__dirname, '../../template.json'), 'utf-8')
-  );
+  const readTemplateMap = readTemplate();
 
   expect(readTemplateMap).toEqual(templateMap);
-  fs.writeFileSync(
-    path.resolve(__dirname, '../../template.json'),
-    JSON.stringify(orginalTemplateMap),
-    'utf-8'
-  );
+  saveTemplate(templateMap);
 });

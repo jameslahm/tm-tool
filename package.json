@@ -1,5 +1,4 @@
 {
-  "name": "@wangao/tm-cli",
   "version": "1.0.0",
   "main": "lib/index.js",
   "type": "src/index.ts",
@@ -11,6 +10,10 @@
   "workspaces": [
     "packages/*"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jameslahm/tm-tool"
+  },
   "dependencies": {
     "chalk": "^4.1.0",
     "commander": "^5.1.0",
@@ -20,19 +23,17 @@
     "ora": "^4.0.4",
     "shelljs": "^0.8.4"
   },
-  "bin": {
-    "tm-cli": "./lib/index.js"
-  },
   "scripts": {
     "release": "lerna exec --concurrency 1 -- npx --no-install semantic-release -e semantic-release-monorepo",
-    "test": "jest -c jest.config.js",
-    "build": "lerna run build"
+    "test": "jest",
+    "build": "lerna run build",
+    "bootstrap": "lerna bootstrap",
+    "clean":"lerna run clean"
   },
   "lint-staged": {
     "*.{js,ts,tsx,jsx}": [
       "prettier --write"
     ]
-    
   },
   "husky": {
     "hooks": {
@@ -44,6 +45,7 @@
     "@commitlint/cli": "^9.0.1",
     "@commitlint/config-conventional": "^9.0.1",
     "@types/debug": "^4.1.5",
+    "@types/estree": "^0.0.45",
     "@types/inquirer": "^6.5.0",
     "@types/jest": "^26.0.3",
     "@types/shelljs": "^0.8.8",

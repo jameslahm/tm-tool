@@ -11,7 +11,7 @@ import {
   registerTemplate,
   verifyUrl,
   readTemplate,
-} from '../../tm-shared';
+} from '@tm-tools/tm-shared';
 
 /**
  * @description Template Supported

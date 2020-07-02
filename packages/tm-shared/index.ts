@@ -1,13 +1,12 @@
 import ora from 'ora';
 import chalk from 'chalk';
-import url from 'url';
 import Fuse from 'fuse.js';
 import shell from 'shelljs';
 import path from 'path';
 import fs from 'fs';
 import debugUtil from 'debug';
 
-export interface templateMapType {
+export interface TemplateMapType {
   [index: string]: { url: string; type: string };
 }
 
@@ -15,19 +14,28 @@ const debug = debugUtil('template');
 
 const readTemplate = () => {
   try {
-    const templateMap = JSON.parse(
+    const templateMap: TemplateMapType = JSON.parse(
       fs.readFileSync(
         path.resolve(__dirname, './config/template.json'),
         'utf-8'
       )
     );
+    Object.keys(templateMap).forEach((k) => {
+      if (templateMap[k].type === 'local') {
+        templateMap[k].url = path.resolve(__dirname, templateMap[k].url);
+      } else {
+        return;
+      }
+    });
+    console.log(templateMap);
     return templateMap;
   } catch (error) {
     console.log(chalk.red(error.message));
+    return {} as TemplateMapType;
   }
 };
 
-const saveTemplate = (templateMap: templateMapType) => {
+const saveTemplate = (templateMap: TemplateMapType) => {
   try {
     fs.writeFileSync(
       path.resolve(__dirname, './config/template.json'),
@@ -125,7 +133,10 @@ const unregisterTemplate = (templateName: string) => {
   spinner.succeed('Unregister Success!');
 };
 
+const TEMPLATEPATH = path.resolve(__dirname, './templates');
+
 export {
+  TEMPLATEPATH,
   resolveTemplate,
   verifyUrl,
   registerTemplate,

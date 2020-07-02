@@ -11,7 +11,7 @@ Easy project scaffolds management tool
 
 ### Install
 ```
-npm install -g @wangao/tm-cli
+npm install -g @tm-tools/tm-cli
 ```
 
 ### Init Project Using Template
