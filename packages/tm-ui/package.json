@@ -1,6 +1,6 @@
 {
   "name": "@tm-tools/tm-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./lib/server.js",
   "types": "./lib/server.d.ts",
   "publishConfig": {
@@ -23,7 +23,7 @@
     "express": "^4.17.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "@tm-tools/tm-shared":"^1.0.0"
+    "@tm-tools/tm-shared":"^1.0.1"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.0",
