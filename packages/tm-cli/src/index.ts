@@ -3,7 +3,6 @@
 import { Command } from 'commander';
 import path from 'path';
 import inquirer from 'inquirer';
-import fs from 'fs';
 import chalk from 'chalk';
 import {
   unregisterTemplate,
