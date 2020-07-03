@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "@emotion/core": "./@emotion/core.js",
+    "@emotion/styled": "./@emotion/styled.js",
+    "@reach/dialog": "./@reach/dialog.js",
+    "@reach/router": "./@reach/router.js",
+    "axios": "./axios.js",
+    "react": "./react.js",
+    "react-dom": "./react-dom.js"
+  }
+}
