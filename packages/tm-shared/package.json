@@ -7,6 +7,10 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "lib",
+    "README.md"
+  ],
   "scripts": {
     "build": "yarn clean && tsc",
     "postbuild": "copyfiles -a \"config/**/*\" \"templates/**/*\" lib",

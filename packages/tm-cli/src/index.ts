@@ -12,6 +12,8 @@ import {
   readTemplate,
 } from '@tm-tools/tm-shared';
 import app from '@tm-tools/tm-ui';
+// @ts-ignore
+import opn from 'opn';
 
 /**
  * @description Template Supported
@@ -121,6 +123,7 @@ program
   .action(() => {
     app.listen(3000, () => {
       console.log('Listening on http://localhost:3000');
+      opn('http://localhost:3000');
     });
   });
 

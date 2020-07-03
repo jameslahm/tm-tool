@@ -6,6 +6,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "lib",
+    "build",
+    "README.md"
+  ],
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build && yarn build:server",

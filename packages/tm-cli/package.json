@@ -7,21 +7,25 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "lib",
+    "README.md"
+  ],
   "scripts": {
-    "build":"yarn clean && tsc",
-    "clean":"rimraf lib"
+    "build": "yarn clean && tsc",
+    "clean": "rimraf lib"
   },
   "bin": {
     "tm-cli": "./lib/index.js"
   },
   "dependencies": {
+    "@tm-tools/tm-shared": "^1.0.1",
+    "@tm-tools/tm-ui": "^1.0.1",
+    "@types/opn": "^5.5.0",
     "chalk": "^4.1.0",
     "commander": "^5.1.0",
     "inquirer": "^7.2.0",
-    "@tm-tools/tm-ui":"^1.0.1",
-    "@tm-tools/tm-shared":"^1.0.1"
+    "opn": "^6.0.0"
   },
-  "peerDependencies": {
-    
-  }
+  "peerDependencies": {}
 }
