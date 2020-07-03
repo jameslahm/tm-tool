@@ -45,5 +45,5 @@ tm-cli help [command]
 ```
 
 ## TODO
-[] tm-ui Tests
+- [ ] tm-ui Tests
 
